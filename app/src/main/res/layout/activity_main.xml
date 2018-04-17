@@ -7,34 +7,45 @@
     tools:context="com.example.nicholasnguyen.smh.MainActivity">
 
     <TextView
-        android:id="@+id/bt_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bluetooth"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Heart rate"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="62dp" />
+        android:layout_height="23dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/heart_rate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/bpm_input"
-        android:layout_width="46dp"
-        android:layout_height="21dp"
-        android:text="0"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="61dp" />
+        android:layout_width="62dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="52dp"
+        android:text="@android:string/unknownName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BPM"
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="62dp" />
+        android:layout_width="52dp"
+        android:layout_height="19dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/beats_per_minute"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/bpm_input"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.004" />
+
 </android.support.constraint.ConstraintLayout>
