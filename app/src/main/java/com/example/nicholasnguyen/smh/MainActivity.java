@@ -11,10 +11,14 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +26,8 @@ public class MainActivity extends Activity {
     TextView bpm_input;
     Handler bluetoothIn;
     Button buttonPlayPause;
+
+
 
     final int handlerState = 0;                        //used to identify handler message
     private BluetoothAdapter btAdapter = null;
@@ -76,9 +82,10 @@ public class MainActivity extends Activity {
         btAdapter = BluetoothAdapter.getDefaultAdapter();       // get Bluetooth adapter
         checkBTState();
 
-        //supposedly plays song
+        //media player stuff
         player = MediaPlayer.create(this, R.raw.song);
         setPlayPauseButton();
+        //setSpeedOptions();
     }
 
 
@@ -205,6 +212,8 @@ public class MainActivity extends Activity {
         }
     }
 
+    //Music stuff below
+
     private void setPlayPauseButton() {
         final Button playPauseButton = (Button) findViewById(R.id.buttonPlayPause);
         playPauseButton.setOnClickListener(new View.OnClickListener() {
@@ -218,6 +227,7 @@ public class MainActivity extends Activity {
             }
         });
     }
+
 
 }
 
