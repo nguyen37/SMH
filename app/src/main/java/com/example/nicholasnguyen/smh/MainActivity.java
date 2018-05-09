@@ -85,7 +85,7 @@ public class MainActivity extends Activity {
         checkBTState();
 
         //media player stuff
-        player = MediaPlayer.create(this, R.raw.song);
+        player = MediaPlayer.create(this, R.raw.m2);
         setPlayPauseButton();
         //changePlayerSpeed();
         //setSpeedOptions();
@@ -263,34 +263,34 @@ public class MainActivity extends Activity {
                 player.setPlaybackParams(player.getPlaybackParams().setSpeed(0.70f));
             }
             else if (sensor0.equals("56") || sensor0.equals("57") || sensor0.equals("58") || sensor0.equals("59") || sensor0.equals("60")) {
-                player.setPlaybackParams(player.getPlaybackParams().setSpeed(0.80f));
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(0.85f));
             }
             else if (sensor0.equals("61") || sensor0.equals("62") || sensor0.equals("63") || sensor0.equals("64") || sensor0.equals("65")) {
-                player.setPlaybackParams(player.getPlaybackParams().setSpeed(0.90f));
-            }
-            else if (sensor0.equals("66") || sensor0.equals("67") || sensor0.equals("68") || sensor0.equals("69") || sensor0.equals("70")) {
-                player.setPlaybackParams(player.getPlaybackParams().setSpeed(0.95f));
-            }
-            else if (sensor0.equals("71") || sensor0.equals("72") || sensor0.equals("73") || sensor0.equals("74") || sensor0.equals("75")) {
                 player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.0f));
             }
-            else if (sensor0.equals("76") || sensor0.equals("77") || sensor0.equals("78") || sensor0.equals("79") || sensor0.equals("80")) {
+            else if (sensor0.equals("66") || sensor0.equals("67") || sensor0.equals("68") || sensor0.equals("69") || sensor0.equals("70")) {
                 player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.05f));
             }
+            else if (sensor0.equals("71") || sensor0.equals("72") || sensor0.equals("73") || sensor0.equals("74") || sensor0.equals("75")) {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.10f));
+            }
+            else if (sensor0.equals("76") || sensor0.equals("77") || sensor0.equals("78") || sensor0.equals("79") || sensor0.equals("80")) {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.25f));
+            }
             else if (sensor0.equals("81") || sensor0.equals("82") || sensor0.equals("83") || sensor0.equals("84") || sensor0.equals("85")) {
-                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.20f));
-            }
-            else if (sensor0.equals("86") || sensor0.equals("87") || sensor0.equals("88") || sensor0.equals("89") || sensor0.equals("90")) {
-                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.30f));
-            }
-            else if (sensor0.equals("91") || sensor0.equals("92") || sensor0.equals("93") || sensor0.equals("94") || sensor0.equals("95")) {
-                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.35f));
-            }
-            else if (sensor0.equals("96") || sensor0.equals("97") || sensor0.equals("98") || sensor0.equals("99") || sensor0.equals("100")) {
                 player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.40f));
             }
+            else if (sensor0.equals("86") || sensor0.equals("87") || sensor0.equals("88") || sensor0.equals("89") || sensor0.equals("90")) {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.55f));
+            }
+            else if (sensor0.equals("91") || sensor0.equals("92") || sensor0.equals("93") || sensor0.equals("94") || sensor0.equals("95")) {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.70f));
+            }
+            else if (sensor0.equals("96") || sensor0.equals("97") || sensor0.equals("98") || sensor0.equals("99") || sensor0.equals("100")) {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.75f));
+            }
             else if (sensor0.equals("101") || sensor0.equals("102") || sensor0.equals("103") || sensor0.equals("104") || sensor0.equals("105")) {
-                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.50f));
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.80f));
             }
             else {
                 player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.0f));
