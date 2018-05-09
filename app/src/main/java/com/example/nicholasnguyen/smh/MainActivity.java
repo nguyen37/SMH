@@ -43,6 +43,7 @@ public class MainActivity extends Activity {
     private static String address;
 
     private MediaPlayer player;
+    private String sensor0;
 
     @SuppressLint("HandlerLeak")
     @Override
@@ -58,20 +59,21 @@ public class MainActivity extends Activity {
 
         bluetoothIn = new Handler() {
             public void handleMessage(android.os.Message msg) {
-                if (msg.what == handlerState) {                                  //if message is what we want
-                    String readMessage = (String) msg.obj;                       // msg.arg1 = bytes from connect thread
-                    recDataString.append(readMessage);                              //keep appending to string until ~
+                if (msg.what == handlerState) {                                         //if message is what we want
+                    String readMessage = (String) msg.obj;                              // msg.arg1 = bytes from connect thread
+                    recDataString.append(readMessage);                                  //keep appending to string until ~
                     int endOfLineIndex = recDataString.indexOf("~");                    // determine the end-of-line
                     if (endOfLineIndex > 0) {                                           // make sure there data before ~
-                        String dataInPrint = recDataString.substring(0, endOfLineIndex);    // extract string
-                        //int dataLength = dataInPrint.length();                          //get length of data received
+                        String dataInPrint = recDataString.substring(0, endOfLineIndex);// extract string
+                        //int dataLength = dataInPrint.length();                        //get length of data received
                         if (recDataString.charAt(0) == '#')                             //if it starts with # we know it is what we are looking for
                         {
-                            String sensor0 = recDataString.substring(1, 5);             //get sensor value from string between indices 1-5
+                           // String sensor0 = recDataString.substring(1, 2);           //get sensor value from string between indices 1-5
+                            sensor0 = recDataString.substring(1, 3);
                             //sensorView0.setText(" Sensor 0 Voltage = " + sensor0 + "V");    //update the textviews with sensor values
                             bpm_input.setText(sensor0);
                         }
-                        recDataString.delete(0, recDataString.length());                    //clear all string data
+                        recDataString.delete(0, recDataString.length());                //clear all string data
                         // strIncom =" ";
                         //dataInPrint = " ";
                     }
@@ -79,12 +81,13 @@ public class MainActivity extends Activity {
             }
         };
 
-        btAdapter = BluetoothAdapter.getDefaultAdapter();       // get Bluetooth adapter
+        btAdapter = BluetoothAdapter.getDefaultAdapter();                               // get Bluetooth adapter
         checkBTState();
 
         //media player stuff
         player = MediaPlayer.create(this, R.raw.song);
         setPlayPauseButton();
+        //changePlayerSpeed();
         //setSpeedOptions();
     }
 
@@ -93,7 +96,7 @@ public class MainActivity extends Activity {
     private BluetoothSocket createBluetoothSocket(BluetoothDevice device) throws IOException {
 
         return  device.createRfcommSocketToServiceRecord(BTMODULEUUID);
-        //creates secure outgoing connecetion with BT device using UUID
+        //creates secure outgoing connection with BT device using UUID
     }
 
     @Override
@@ -212,22 +215,86 @@ public class MainActivity extends Activity {
         }
     }
 
-    //Music stuff below
 
+    //Music stuff below
     private void setPlayPauseButton() {
         final Button playPauseButton = (Button) findViewById(R.id.buttonPlayPause);
         playPauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (player.isPlaying()) {
+                    changePlayerSpeed();
                     player.pause();
                 } else {
                     player.start();
                 }
             }
+            /*
+            @Override
+            public void onResume() {
+                while (player.isPlaying()) {
+                    if (sensor0.equals("1")) {
+                        player.setPlaybackParams(player.getPlaybackParams().setSpeed(0.33f));
+                    }
+                    if (sensor0.equals("2")) {
+                        player.setPlaybackParams(player.getPlaybackParams().setSpeed(0.66f));
+                    }
+                    if (sensor0.equals("3")) {
+                        player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.0f));
+                    }
+                    if (sensor0.equals("4")) {
+                        player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.0f));
+                    }
+                    if (sensor0.equals("5")) {
+                        player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.2f));
+                    }
+                    if (sensor0.equals("6")) {
+                        player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.5f));
+                    }
+                }
+            }*/
         });
     }
 
-
+    private void changePlayerSpeed() {
+        //player.start();
+        if (player.isPlaying()) {
+            if (sensor0.equals("50") || sensor0.equals("51") || sensor0.equals("52") || sensor0.equals("53") || sensor0.equals("54") || sensor0.equals("55")) {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(0.70f));
+            }
+            else if (sensor0.equals("56") || sensor0.equals("57") || sensor0.equals("58") || sensor0.equals("59") || sensor0.equals("60")) {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(0.80f));
+            }
+            else if (sensor0.equals("61") || sensor0.equals("62") || sensor0.equals("63") || sensor0.equals("64") || sensor0.equals("65")) {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(0.90f));
+            }
+            else if (sensor0.equals("66") || sensor0.equals("67") || sensor0.equals("68") || sensor0.equals("69") || sensor0.equals("70")) {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(0.95f));
+            }
+            else if (sensor0.equals("71") || sensor0.equals("72") || sensor0.equals("73") || sensor0.equals("74") || sensor0.equals("75")) {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.0f));
+            }
+            else if (sensor0.equals("76") || sensor0.equals("77") || sensor0.equals("78") || sensor0.equals("79") || sensor0.equals("80")) {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.05f));
+            }
+            else if (sensor0.equals("81") || sensor0.equals("82") || sensor0.equals("83") || sensor0.equals("84") || sensor0.equals("85")) {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.20f));
+            }
+            else if (sensor0.equals("86") || sensor0.equals("87") || sensor0.equals("88") || sensor0.equals("89") || sensor0.equals("90")) {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.30f));
+            }
+            else if (sensor0.equals("91") || sensor0.equals("92") || sensor0.equals("93") || sensor0.equals("94") || sensor0.equals("95")) {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.35f));
+            }
+            else if (sensor0.equals("96") || sensor0.equals("97") || sensor0.equals("98") || sensor0.equals("99") || sensor0.equals("100")) {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.40f));
+            }
+            else if (sensor0.equals("101") || sensor0.equals("102") || sensor0.equals("103") || sensor0.equals("104") || sensor0.equals("105")) {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.50f));
+            }
+            else {
+                player.setPlaybackParams(player.getPlaybackParams().setSpeed(1.0f));
+            }
+        }
+    }
 }
-
